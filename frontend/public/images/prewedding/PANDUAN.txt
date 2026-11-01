@@ -1,0 +1,14 @@
+Enam foto prewedding Listy & Aldo
+
+Simpan enam FILE FOTO bernama:
+prewedding-1.jpg
+prewedding-2.jpg
+prewedding-3.jpg
+prewedding-4.jpg
+prewedding-5.jpg
+prewedding-6.jpg
+
+Lalu isi keenam path gallery pada frontend/src/lib/config.ts:
+/images/prewedding/prewedding-1.jpg hingga /images/prewedding/prewedding-6.jpg.
+
+Nama .jpg adalah file, bukan folder. Biarkan path kosong sampai foto asli ada.

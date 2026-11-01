@@ -1,0 +1,102 @@
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    --ff-motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --ff-motion-ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  .ff-button {
+    transition:
+      background-color 320ms ease,
+      border-color 320ms ease,
+      color 320ms ease,
+      transform 420ms var(--ff-motion-ease);
+  }
+
+  .ff-reveal {
+    transition:
+      opacity 1.2s var(--ff-motion-ease),
+      transform 1.2s var(--ff-motion-ease);
+  }
+
+  .ff-reveal.ff-pending:not(.ff-visible) {
+    transform: translate3d(0, 22px, 0) scale(0.99);
+  }
+
+  .ff-scene-mist {
+    animation-duration: 18s;
+    animation-timing-function: ease-in-out;
+  }
+
+  .ff-scene-sparkles > span {
+    animation-duration: 7.5s;
+    animation-timing-function: ease-in-out;
+  }
+
+  .ff-intro-controls {
+    animation-duration: 1.05s;
+    animation-timing-function: var(--ff-motion-ease);
+  }
+
+  .ff-opening .ff-cover-letter {
+    animation-duration: 1s;
+    animation-timing-function: var(--ff-motion-ease);
+  }
+
+  .ff-opening .ff-cover-top,
+  .ff-opening .ff-cover-bottom {
+    animation-duration: 850ms;
+    animation-timing-function: ease-out;
+  }
+
+  .ff-opening .ff-scene-landscape,
+  .ff-opening .ff-scene-arch {
+    animation-timing-function: var(--ff-motion-ease-in-out);
+  }
+
+  .ff-opening::after {
+    animation-timing-function: ease-in-out;
+  }
+
+  .ff-petals > span {
+    animation-timing-function: ease-in-out;
+  }
+
+  .ff-phase-open .ff-hero-content {
+    animation-duration: 1.2s;
+    animation-timing-function: var(--ff-motion-ease);
+  }
+
+  .ff-gallery-photo > img {
+    transition: transform 750ms var(--ff-motion-ease);
+  }
+
+  .ff-form .ff-choice {
+    transition:
+      background-color 320ms ease,
+      border-color 320ms ease,
+      transform 320ms var(--ff-motion-ease);
+  }
+
+  .ff-toast {
+    transition:
+      opacity 350ms ease,
+      transform 450ms var(--ff-motion-ease);
+  }
+
+  .ff-cover:not(.ff-opening) .ff-scene-landscape {
+    animation-duration: 22s;
+    animation-timing-function: ease-in-out;
+  }
+
+  @keyframes ff-enter {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 20px, 0) scale(0.985);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+  }
+}

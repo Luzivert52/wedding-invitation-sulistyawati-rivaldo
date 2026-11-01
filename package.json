@@ -1,0 +1,13 @@
+{
+  "name": "listy-aldo-floral-cinematic",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "setup": "npm --prefix frontend ci",
+    "dev": "node scripts/dev.mjs",
+    "build": "npm --prefix frontend run build",
+    "start": "node scripts/dev.mjs --production",
+    "typecheck": "npm --prefix frontend run typecheck",
+    "test:backend": "go -C backend test ./..."
+  }
+}

@@ -1,0 +1,54 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+backend/vendor/
+
+# Build
+frontend/.next/
+frontend/out/
+backend/tmp/
+*.exe
+
+# Environment
+.env
+.env.local
+.env.*.local
+frontend/.env
+frontend/.env.local
+backend/.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+
+# Go
+backend/floral-wedding-backend
+
+# Konfigurasi rahasia
+.env
+.env.*
+!.env.example
+
+# Dependensi dan hasil build
+node_modules/
+.next/
+*.tsbuildinfo
+
+# Database lokal
+backend/data/
+*.db
+*.db-wal
+*.db-shm
+
+# Berkas pengujian lokal
+.qa/
+
+# Semua hasil preview dan data pengujian lokal
+.qa/
