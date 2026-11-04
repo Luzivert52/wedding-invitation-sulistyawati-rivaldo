@@ -186,6 +186,57 @@ Musik lokal berada di `frontend/public/audio/floral-piano.wav` dan mulai diputar
 - Data RSVP disimpan di `backend/data/rsvps.json`, di luar folder publik frontend.
 - Gunakan penyimpanan disk persisten dan backup rutin saat backend di-host.
 
+## Deploy ke Vercel dan Render
+
+Frontend Next.js di-deploy ke Vercel, sedangkan backend Go dan file RSVP dijalankan di Render. File `render.yaml` menyiapkan backend Go, pemeriksaan kesehatan, dan disk persisten 1 GB. **Render persistent disk dan compute service memerlukan paket berbayar.** Periksa harga terbaru di Render sebelum membuat service. Jangan deploy backend ini ke filesystem serverless yang tidak persisten tanpa terlebih dahulu mengganti penyimpanan JSON dengan database.
+
+### 1. Deploy frontend ke Vercel
+
+1. Push kode ke repository GitHub.
+2. Di Vercel, pilih **Add New → Project**, lalu import repository ini.
+3. Pada **Root Directory**, pilih `frontend`. Biarkan framework terdeteksi sebagai Next.js dan gunakan perintah build bawaan.
+4. Deploy frontend. Catat alamat produksi, misalnya `https://nama-undangan.vercel.app`.
+
+Halaman dapat tampil setelah langkah ini, tetapi RSVP dan buku tamu belum tersambung sampai backend dikonfigurasi.
+
+### 2. Deploy backend Go ke Render
+
+1. Di Render, pilih **New → Blueprint** dan hubungkan repository GitHub yang sama. Pastikan `render.yaml` berada di root repository.
+2. Tinjau resource dan harga sebelum menyetujui pembuatan service. Blueprint membuat web service Go dan persistent disk; disk dipasang di `/var/data`, tempat RSVP disimpan.
+3. Saat diminta `ALLOWED_ORIGIN`, masukkan origin Vercel dari langkah sebelumnya persis, tanpa slash di akhir, misalnya `https://nama-undangan.vercel.app`.
+4. Setelah deploy selesai, catat URL service backend, misalnya `https://listy-aldo-backend.onrender.com`.
+5. Pastikan health check berhasil dengan membuka `https://URL-BACKEND/api/health`; respons normal berisi status `ok`.
+
+### 3. Hubungkan Vercel ke backend
+
+Di Vercel, buka **Project → Settings → Environment Variables**, lalu tambahkan:
+
+| Name | Value |
+| --- | --- |
+| `API_INTERNAL_URL` | URL backend Render, misalnya `https://listy-aldo-backend.onrender.com` |
+
+Pilih environment **Production**, simpan, lalu lakukan **Redeploy**. Jangan tambahkan slash atau `/api` di akhir URL. Biarkan `NEXT_PUBLIC_API_URL` tidak disetel agar browser menggunakan proxy `/api` dari Next.js. Jika domain Vercel berubah atau ditambahkan domain kustom, perbarui `ALLOWED_ORIGIN` di Render dan deploy ulang backend.
+
+### 4. Aktifkan notifikasi Resend
+
+Domain pengirim harus dimiliki dan diverifikasi di Resend sebelum digunakan. Tambahkan record DNS yang diberikan Resend pada penyedia domain Anda, lalu tunggu hingga dashboard Resend menandai domain terverifikasi. Setelah itu, di **Render → service backend → Environment**, tambahkan:
+
+| Name | Value |
+| --- | --- |
+| `RESEND_API_KEY` | API key Resend; simpan sebagai secret |
+| `EMAIL_FROM` | Nama dan alamat dari domain terverifikasi, misalnya `Listy & Aldo <rsvp@domain-anda.com>` |
+| `EMAIL_TO` | Alamat email yang akan menerima notifikasi RSVP |
+
+Simpan perubahan dan deploy ulang service Render. Jangan menaruh `RESEND_API_KEY` di Vercel, variabel `NEXT_PUBLIC_*`, Git, atau chat. File `.env` lokal tidak otomatis diunggah ke Vercel maupun Render; nilai production harus dimasukkan di dashboard masing-masing platform.
+
+### 5. Uji deployment
+
+- Buka URL frontend dan kirim satu RSVP uji.
+- Pastikan RSVP mendapat respons berhasil dan email masuk ke `EMAIL_TO`.
+- Muat ulang halaman buku tamu untuk memeriksa ucapan yang diberi izin.
+- Buka `/api/health` pada backend dan periksa log service bila pengiriman email gagal.
+- Untuk memeriksa keberlanjutan penyimpanan, lakukan redeploy backend lalu pastikan RSVP uji masih tersimpan.
+
 ## Pemeriksaan dan build
 
 Jalankan dari folder utama:
@@ -219,6 +270,7 @@ npm run dev
 backend/                 API RSVP, buku tamu, penyimpanan, dan email
 frontend/                Aplikasi Next.js dan aset undangan
 scripts/dev.mjs          Menjalankan frontend dan backend
+render.yaml              Blueprint deploy backend Go dan persistent disk
 design-originals/        Ilustrasi resolusi asli
 ```
 

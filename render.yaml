@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: listy-aldo-backend
+    runtime: go
+    plan: 0.5c-512mb
+    region: singapore
+    rootDir: backend
+    buildCommand: go build -o app .
+    startCommand: ./app
+    healthCheckPath: /api/health
+    disk:
+      name: rsvp-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: RSVP_STORAGE_PATH
+        value: /var/data/rsvps.json
+      - key: RATE_LIMIT_RPM
+        value: "10"
+      - key: ALLOWED_ORIGIN
+        sync: false
