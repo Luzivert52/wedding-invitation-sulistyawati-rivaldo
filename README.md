@@ -1,6 +1,6 @@
-# Undangan Pernikahan Listy & Aldo
+# Undangan Pernikahan Aldo & Listy
 
-Website undangan digital Sulistyawati (Listy) dan Rivaldo (Aldo), dengan tema taman bunga, animasi pembuka, galeri foto, informasi acara, countdown, RSVP, dan buku ucapan.
+Website undangan digital Rivaldo (Aldo) dan Sulistyawati (Listy), dengan tema taman bunga, animasi pembuka, galeri foto, informasi acara, countdown, RSVP, dan buku ucapan.
 
 ## Fitur
 
@@ -217,7 +217,7 @@ Verifikasi domain pengirim di Resend, lalu tambahkan variabel berikut ke environ
 | Name | Value |
 | --- | --- |
 | `RESEND_API_KEY` | API key Resend; simpan sebagai secret |
-| `EMAIL_FROM` | Nama dan alamat domain terverifikasi, misalnya `Listy & Aldo <rsvp@domain-anda.com>` |
+| `EMAIL_FROM` | Nama dan alamat domain terverifikasi, misalnya `Aldo & Listy <rsvp@domain-anda.com>` |
 | `EMAIL_TO` | Alamat email yang akan menerima notifikasi RSVP |
 
 Setelah menyimpan, lakukan redeploy. Jangan menaruh `RESEND_API_KEY` pada variabel `NEXT_PUBLIC_*`, Git, atau chat.

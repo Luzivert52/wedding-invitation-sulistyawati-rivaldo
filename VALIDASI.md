@@ -8,7 +8,7 @@ Kalender diperiksa memakai kode pembuat kalender yang benar-benar dipakai proyek
 
 - Akad 5 Desember 2026 10.00 WITA menghasilkan `DTSTART:20261205T020000Z`.
 - Akhir akad 11.00 WITA menghasilkan `DTEND:20261205T030000Z`.
-- Judul kalender menggunakan nama Listy & Aldo.
+- Judul kalender menggunakan nama Aldo & Listy.
 - Pemotongan baris kalender tidak melebihi 75 byte UTF-8.
 
 ## Kode dan build

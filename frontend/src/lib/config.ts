@@ -121,7 +121,7 @@ export const weddingConfig = {
     "Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami.",
 
   // --- Meta ---
-  siteTitle: "Wedding Invitation - Sulistyawati & Rivaldo",
+  siteTitle: "Wedding Invitation - Aldo & Listy",
   siteDescription:
     "Dengan penuh sukacita, kami mengundang Anda untuk merayakan hari bahagia kami.",
 };

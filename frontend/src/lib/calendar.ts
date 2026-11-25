@@ -26,7 +26,7 @@ export function createWeddingCalendar() {
     `DTSTAMP:${dateICS(new Date().toISOString())}`,
     `DTSTART:${dateICS(start)}`,
     `DTEND:${dateICS(end)}`,
-    `SUMMARY:${escapeICS(`${event.title} ${weddingConfig.bride.shortName} & ${weddingConfig.groom.shortName}`)}`,
+    `SUMMARY:${escapeICS(`${event.title} ${weddingConfig.groom.shortName} & ${weddingConfig.bride.shortName}`)}`,
     `LOCATION:${escapeICS(`${event.venue}, ${event.address}`)}`,
     "END:VEVENT",
     "END:VCALENDAR",
@@ -61,7 +61,7 @@ export function downloadWeddingCalendar() {
   );
   const anchor = document.createElement("a");
   anchor.href = url;
-  anchor.download = "resepsi-listy-aldo.ics";
+  anchor.download = "resepsi-aldo-listy.ics";
   document.body.appendChild(anchor);
   anchor.click();
   anchor.remove();
