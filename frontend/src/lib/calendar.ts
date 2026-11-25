@@ -22,7 +22,7 @@ export function createWeddingCalendar() {
     "PRODID:-//Floral Wedding//ID",
     "CALSCALE:GREGORIAN",
     "BEGIN:VEVENT",
-    `UID:akad-${dateICS(start)}@floral-wedding.local`,
+    `UID:wedding-${dateICS(start)}@floral-wedding.local`,
     `DTSTAMP:${dateICS(new Date().toISOString())}`,
     `DTSTART:${dateICS(start)}`,
     `DTEND:${dateICS(end)}`,
@@ -61,7 +61,7 @@ export function downloadWeddingCalendar() {
   );
   const anchor = document.createElement("a");
   anchor.href = url;
-  anchor.download = "akad-listy-aldo.ics";
+  anchor.download = "resepsi-listy-aldo.ics";
   document.body.appendChild(anchor);
   anchor.click();
   anchor.remove();

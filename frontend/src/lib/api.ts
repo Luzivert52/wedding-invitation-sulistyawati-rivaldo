@@ -14,8 +14,6 @@ export interface APIResponse {
   message: string;
 }
 
-const API_URL = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/$/, "");
-
 export interface PublicWish {
   id: string;
   name: string;
@@ -24,7 +22,7 @@ export interface PublicWish {
 }
 
 export async function getWishes(): Promise<PublicWish[]> {
-  const res = await fetch(`${API_URL}/api/wishes`, {
+  const res = await fetch("/api/wishes", {
     cache: "no-store",
     signal: AbortSignal.timeout(15000),
   });
@@ -38,7 +36,7 @@ export async function submitRSVP(data: RSVPPayload): Promise<APIResponse> {
   const timeout = setTimeout(() => controller.abort(), 20000); // 20s timeout
 
   try {
-    const res = await fetch(`${API_URL}/api/rsvp`, {
+    const res = await fetch("/api/rsvp", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

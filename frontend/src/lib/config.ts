@@ -8,31 +8,35 @@
 export const weddingConfig = {
   // --- Nama Pengantin ---
   bride: {
-    fullName: "Sulistyawati",
+    fullName: "Sulistyawati A.Md,AK",
     shortName: "Listy",
+    birthOrder: "Putri Pertama",
+    instagram: "@listyy___",
     father: "Alm. Daeng Talara",
     mother: "Fariati",
   },
   groom: {
     fullName: "Rivaldo",
     shortName: "Aldo",
+    birthOrder: "Putra Pertama",
+    instagram: "@do.labamba",
     father: "Alm. Ridwan",
-    mother: "Fandha",
+    mother: "Fandha Febryanti",
   },
 
-  // Simpan foto dengan nama/path ini di frontend/public/images/.
+  // Path foto publik dimulai dari root URL, bukan dari folder public/.
   images: {
-    bride: "",
-    groom: "",
+    bride: "/images/bride.jpg",
+    groom: "/images/optimized/groom.jpg",
   },
 
   // --- Tanggal & Waktu ---
-  // Akad begins at 10.00 WITA (UTC+8).
-  weddingDate: "2026-12-05T10:00:00+08:00",
+  // Resepsi dimulai pukul 16.00 WITA (UTC+8).
+  weddingDate: "2026-12-05T16:00:00+08:00",
   weddingDateDisplay: "Sabtu, 05 Desember 2026",
 
-  // Kalender untuk akad 10.00–11.00 WITA, sesuai jadwal acara.
-  calendar: { end: "2026-12-05T11:00:00+08:00" },
+  // Kalender menggunakan durasi satu jam karena waktu selesai tidak dicantumkan.
+  calendar: { end: "2026-12-05T17:00:00+08:00" },
 
   // Musik instrumental lokal; kosongkan src untuk menyembunyikan tombol musik.
   music: { src: "/audio/floral-piano.wav" },
@@ -40,71 +44,77 @@ export const weddingConfig = {
   // --- Acara ---
   events: [
     {
-      title: "Akad Nikah",
-      time: "10.00 – 11.00 WITA",
+      title: "Maparolla & Resepsi",
+      time: "16.00 WITA",
       date: "Sabtu, 05 Desember 2026",
-      venue: "Rumah Mempelai Wanita",
-      address: "Jl. Akasia 1 No. 27 Perumnas Tinggede",
-    },
-    {
-      title: "Resepsi",
-      time: "11.00 – Selesai",
-      date: "Sabtu, 05 Desember 2026",
-      venue: "Rumah Mempelai Wanita",
-      address: "Jl. Akasia 1 No. 27 Perumnas Tinggede",
+      venue: "Kediaman Mempelai Pria",
+      address: "Jl. Sungai Ogotion, Belakang Warung Hj Rosna",
     },
   ],
 
-  // --- Google Maps ---
-  // Ganti dengan link Google Maps lokasi acara Anda
+  // --- Peta Lokasi ---
   mapsUrl:
-    "https://maps.google.com/?q=Rumah+Mempelai+Wanita,+Jl.+Akasia+1+No.+27,+Perumnas+Tinggede",
+    "https://maps.apple.com/?address=Jalan%20Ogotion,%20Kota%20Palu,%20Sulawesi%20Tengah,%20Indonesia&auid=9150309435901676655&ll=-0.906547,119.862068&lsp=9902&q=Waroeng%20hj%20rosnah&t=h",
 
   // --- Cerita Singkat ---
   story: [
     {
       year: "01",
-      title: "The Beginning of Forever",
+      title: "Awal Pertemuan · 5 Februari 2024",
       text: [
-        "Tidak ada yang pernah menyangka bahwa sebuah perkenalan sederhana akan membawa dua hati menuju takdir yang begitu indah.",
-        "Kisah ini bermula dari seorang sahabat mempelai wanita yang memperkenalkannya kepada seorang laki-laki, teman sekolahnya dahulu. Dari perkenalan sederhana itu, komunikasi mulai terjalin, rasa nyaman perlahan tumbuh, hingga keduanya memutuskan untuk saling mengenal lebih jauh.",
-        "Perjalanan waktu mengajarkan mereka tentang arti kesabaran, pengertian, dan komitmen. Berbagai cerita telah dilalui bersama, hingga akhirnya mereka menyadari bahwa satu sama lain adalah seseorang yang ingin dijadikan teman hidup.",
+        "Berawal dari Instagram, kami saling mengenal melalui perantara seorang sahabat dekat. Tak disangka, perkenalan sederhana itu menjadi awal kisah cinta kami.",
       ],
     },
     {
       year: "02",
-      title: "THE ENGAGEMENT · 25 November 2026",
+      title: "Menjalin Hubungan · 10 April 2024",
       text: [
-        "Dengan penuh keyakinan dan niat baik, dua hati akhirnya melangkah ke tahap yang lebih serius. Sebuah ikatan lamaran menjadi tanda kesungguhan untuk membawa kisah cinta ini menuju jenjang pernikahan.",
+        "Dari obrolan sederhana tumbuh rasa nyaman, hingga kami yakin untuk saling memilih dan melangkah bersama.",
       ],
     },
     {
       year: "03",
-      title: "THE WEDDING · 05 Desember 2026",
+      title: "Lamaran · 25 November 2026",
       text: [
-        "Hari ketika dua hati mengikat janji suci, menyatukan dua perjalanan, dan memulai babak baru sebagai pasangan suami istri.",
-        "Sebuah perkenalan sederhana kini berujung pada janji untuk seumur hidup. Bukan lagi sekadar tentang dua orang yang saling mencintai, melainkan tentang dua insan yang memilih untuk terus bersama dalam suka maupun duka.",
-        "What started as a simple introduction, became a lifetime of love.",
-        "And so, our forever begins… 🤍",
+        "Dengan niat dan keyakinan, kami memutuskan untuk membawa hubungan ini ke jenjang yang lebih serius.",
+      ],
+    },
+    {
+      year: "04",
+      title: "Pernikahan · 05 Desember 2026",
+      text: [
+        "Dua hati yang dipertemukan melalui seorang sahabat, kini disatukan dalam ikatan suci pernikahan. Semoga cinta ini menjadi perjalanan indah seumur hidup.",
       ],
     },
   ],
 
   // --- Galeri ---
   // Enam tempat foto. Biarkan kosong sampai file foto asli tersedia.
-  // Simpan foto di public/images/prewedding/, lalu isi path sesuai komentar.
+  // Foto asli ada di images/prewedding/, versi web ringannya di images/optimized/.
   gallery: [
-    "", // /images/prewedding/prewedding-1.jpg
-    "", // /images/prewedding/prewedding-2.jpg
-    "", // /images/prewedding/prewedding-3.jpg
-    "", // /images/prewedding/prewedding-4.jpg
-    "", // /images/prewedding/prewedding-5.jpg
-    "", // /images/prewedding/prewedding-6.jpg
+    "/images/optimized/prewedding/prewedding-1.jpg",
+    "/images/optimized/prewedding/prewedding-2.jpg",
+    "/images/optimized/prewedding/prewedding-3.jpg",
+    "/images/optimized/prewedding/prewedding-4.jpg",
+    "/images/optimized/prewedding/prewedding-5.jpg",
+    "/images/optimized/prewedding/prewedding-6.jpg",
+  ] as string[],
+  galleryFull: [
+    "/images/optimized/full/prewedding/prewedding-1.jpg",
+    "/images/optimized/full/prewedding/prewedding-2.jpg",
+    "/images/optimized/full/prewedding/prewedding-3.jpg",
+    "/images/optimized/full/prewedding/prewedding-4.jpg",
+    "/images/optimized/full/prewedding/prewedding-5.jpg",
+    "/images/optimized/full/prewedding/prewedding-6.jpg",
   ] as string[],
 
-  // Isi hanya jika tautan siaran / nomor rekening asli sudah tersedia.
+  // Nomor WhatsApp RSVP dan rekening yang diberikan oleh kedua mempelai.
+  rsvpWhatsApp: { display: "082261609700", number: "6282261609700" },
   streamingUrl: "",
-  gifts: [] as { bank: string; account: string; name: string; }[],
+  gifts: [
+    { bank: "Mandiri", account: "1510013930463", name: "Rivaldo" },
+    { bank: "BRI", account: "0060 01 032531 534", name: "Sulistyawati" },
+  ],
 
   // --- Ucapan Penutup ---
   closingMessage:
